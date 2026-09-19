@@ -1,0 +1,14 @@
+*.iml
+.gradle/
+local.properties
+/.idea/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+nacl-sdk-unzipped/
+third_party/nacl-native-sdk/
+app/build/
+quickjs-2024-01-13/
+quickjs.tar.xz
