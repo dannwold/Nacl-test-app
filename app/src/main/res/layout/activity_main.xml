@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Status: Uninitialized"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnInit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Initialize NaCl SDK" />
+
+    <Button
+        android:id="@+id/btnSdkLevel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Native Android SDK Level" />
+
+    <Button
+        android:id="@+id/btnTestHost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Test Android Host Bridge (Roundtrip)" />
+
+    <Button
+        android:id="@+id/btnShutdown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Shutdown NaCl SDK" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:id="@+id/tvLogs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Logs:\n"
+            android:fontFamily="monospace" />
+    </ScrollView>
+
+</LinearLayout>
