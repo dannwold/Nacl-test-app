@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity(), NativeBridge.HostCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        CrashHandler.init()
         setContentView(R.layout.activity_main)
 
         tvStatus = findViewById(R.id.tvStatus)
@@ -44,6 +45,8 @@ class MainActivity : AppCompatActivity(), NativeBridge.HostCallback {
 
         findViewById<Button>(R.id.btnTestHost).setOnClickListener {
             val result = nativeBridge.testAndroidHostCall()
+            val jsResult = nativeBridge.evalQuickJS("10 + 20;")
+            logMessage("QuickJS Eval Result: $jsResult")
             logMessage("Host Test Result: $result")
         }
 

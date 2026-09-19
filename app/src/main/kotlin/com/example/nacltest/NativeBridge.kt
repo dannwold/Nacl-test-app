@@ -27,6 +27,9 @@ class NativeBridge {
     external fun shutdown(): Int
     external fun getAndroidSdkLevel(): Int
 
+    // JNI Native method to evaluate JavaScript via QuickJS
+    external fun evalQuickJS(script: String): String
+
     companion object {
         private const val TAG = "NativeBridge"
 
@@ -36,6 +39,7 @@ class NativeBridge {
             try {
                 System.loadLibrary("android_core")
                 System.loadLibrary("native_host_bridge")
+                System.loadLibrary("quickjs_bindings")
 
                 // Load our JNI test wrapper
                 System.loadLibrary("nacl_test_jni")
