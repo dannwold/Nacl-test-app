@@ -37,7 +37,25 @@ class NativeBridge {
             // Load the provided SDK libraries required by libnative_host_bridge.so or our own library first,
             // depending on dependency graph.
             try {
+                // Must load the deepest dependencies first
                 System.loadLibrary("android_core")
+                System.loadLibrary("routing_core")
+                System.loadLibrary("ipc_crypto")
+                System.loadLibrary("shm_client")
+                System.loadLibrary("adb_client")
+                System.loadLibrary("connectivity_automation")
+                System.loadLibrary("sensors_client")
+                System.loadLibrary("telephony_client")
+                System.loadLibrary("bluetooth_client")
+                System.loadLibrary("usb_subsystem")
+                System.loadLibrary("camera_subsystem")
+                System.loadLibrary("nfc_subsystem")
+                System.loadLibrary("nacl_input")
+                System.loadLibrary("nacl_audio")
+                System.loadLibrary("nacl_location")
+                System.loadLibrary("nacl_storage")
+                System.loadLibrary("power_battery")
+
                 System.loadLibrary("native_host_bridge")
                 System.loadLibrary("quickjs_bindings")
 
