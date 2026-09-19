@@ -37,6 +37,9 @@ class NativeBridge {
             // Load the provided SDK libraries required by libnative_host_bridge.so or our own library first,
             // depending on dependency graph.
             try {
+                // Load c++_shared first since many native libs depend on it dynamically.
+                System.loadLibrary("c++_shared")
+
                 // Must load the deepest dependencies first
                 System.loadLibrary("android_core")
                 System.loadLibrary("routing_core")

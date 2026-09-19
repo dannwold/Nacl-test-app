@@ -3,6 +3,7 @@ package com.example.nacltest
 import android.os.Build
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import java.io.File
@@ -54,6 +55,18 @@ class MainActivity : AppCompatActivity(), NativeBridge.HostCallback {
             val status = nativeBridge.shutdown()
             tvStatus.text = "Status: Shutdown ($status)"
             logMessage("Shutdown returned code: $status")
+        }
+
+        val etJsInput = findViewById<EditText>(R.id.etJsInput)
+        findViewById<Button>(R.id.btnRunJs).setOnClickListener {
+            val script = etJsInput.text.toString()
+            if (script.isNotBlank()) {
+                logMessage("Executing: $script")
+                val jsResult = nativeBridge.evalQuickJS(script)
+                logMessage("Result: $jsResult")
+            } else {
+                logMessage("Please enter a valid JavaScript snippet.")
+            }
         }
     }
 
